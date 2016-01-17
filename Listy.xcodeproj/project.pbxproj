@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3229757A1C47411B00F85C13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322975791C47411B00F85C13 /* main.m */; };
 		3229757D1C47411B00F85C13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229757C1C47411B00F85C13 /* AppDelegate.m */; };
-		322975801C47411B00F85C13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229757F1C47411B00F85C13 /* ViewController.m */; };
 		322975831C47411B00F85C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322975811C47411B00F85C13 /* Main.storyboard */; };
 		322975851C47411B00F85C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322975841C47411B00F85C13 /* Assets.xcassets */; };
 		322975881C47411B00F85C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322975861C47411B00F85C13 /* LaunchScreen.storyboard */; };
 		322975931C47411B00F85C13 /* ListyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322975921C47411B00F85C13 /* ListyTests.m */; };
 		3229759E1C47411B00F85C13 /* ListyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229759D1C47411B00F85C13 /* ListyUITests.m */; };
+		325233ED1C4746B000D29B66 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 325233EC1C4746B000D29B66 /* HomeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		322975791C47411B00F85C13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3229757B1C47411B00F85C13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3229757C1C47411B00F85C13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3229757E1C47411B00F85C13 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3229757F1C47411B00F85C13 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		322975821C47411B00F85C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		322975841C47411B00F85C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		322975871C47411B00F85C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		322975991C47411B00F85C13 /* ListyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3229759D1C47411B00F85C13 /* ListyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListyUITests.m; sourceTree = "<group>"; };
 		3229759F1C47411B00F85C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		325233EC1C4746B000D29B66 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		325233EE1C4746C500D29B66 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +103,13 @@
 			children = (
 				3229757B1C47411B00F85C13 /* AppDelegate.h */,
 				3229757C1C47411B00F85C13 /* AppDelegate.m */,
-				3229757E1C47411B00F85C13 /* ViewController.h */,
-				3229757F1C47411B00F85C13 /* ViewController.m */,
 				322975811C47411B00F85C13 /* Main.storyboard */,
 				322975841C47411B00F85C13 /* Assets.xcassets */,
 				322975861C47411B00F85C13 /* LaunchScreen.storyboard */,
 				322975891C47411B00F85C13 /* Info.plist */,
 				322975781C47411B00F85C13 /* Supporting Files */,
+				325233EC1C4746B000D29B66 /* HomeTableViewController.m */,
+				325233EE1C4746C500D29B66 /* HomeTableViewController.h */,
 			);
 			path = Listy;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322975801C47411B00F85C13 /* ViewController.m in Sources */,
+				325233ED1C4746B000D29B66 /* HomeTableViewController.m in Sources */,
 				3229757D1C47411B00F85C13 /* AppDelegate.m in Sources */,
 				3229757A1C47411B00F85C13 /* main.m in Sources */,
 			);
@@ -498,6 +498,7 @@
 				322975A41C47411B00F85C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322975A51C47411B00F85C13 /* Build configuration list for PBXNativeTarget "ListyTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				322975A71C47411B00F85C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322975A81C47411B00F85C13 /* Build configuration list for PBXNativeTarget "ListyUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +516,7 @@
 				322975AA1C47411B00F85C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
