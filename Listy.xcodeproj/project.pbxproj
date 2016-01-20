@@ -15,6 +15,7 @@
 		322975931C47411B00F85C13 /* ListyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322975921C47411B00F85C13 /* ListyTests.m */; };
 		3229759E1C47411B00F85C13 /* ListyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229759D1C47411B00F85C13 /* ListyUITests.m */; };
 		325233ED1C4746B000D29B66 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 325233EC1C4746B000D29B66 /* HomeTableViewController.m */; };
+		9D7CC5A51C504BC90021BAF9 /* propic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CC5A41C504BC90021BAF9 /* propic.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3229759F1C47411B00F85C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		325233EC1C4746B000D29B66 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		325233EE1C4746C500D29B66 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		9D7CC5A41C504BC90021BAF9 /* propic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = propic.jpg; path = ../../../Downloads/propic.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		322975771C47411B00F85C13 /* Listy */ = {
 			isa = PBXGroup;
 			children = (
+				9D7CC5A41C504BC90021BAF9 /* propic.jpg */,
 				3229757B1C47411B00F85C13 /* AppDelegate.h */,
 				3229757C1C47411B00F85C13 /* AppDelegate.m */,
 				322975811C47411B00F85C13 /* Main.storyboard */,
@@ -245,6 +248,7 @@
 			files = (
 				322975881C47411B00F85C13 /* LaunchScreen.storyboard in Resources */,
 				322975851C47411B00F85C13 /* Assets.xcassets in Resources */,
+				9D7CC5A51C504BC90021BAF9 /* propic.jpg in Resources */,
 				322975831C47411B00F85C13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

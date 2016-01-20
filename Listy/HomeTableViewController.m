@@ -17,12 +17,27 @@
     NSArray *rowNames;
 }
 
+#define HEADER_HEIGHT 50
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     headers = [[NSArray alloc] initWithObjects:@"Personal", @"Groups", @"Benjamins", nil];
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:.5 blue:1.f alpha:1.f];
+    CGFloat circleSize = 3 * self.navigationController.navigationBar.frame.size.height/2;
+    UIView *picView = [[UIView alloc] initWithFrame:CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - circleSize/2, self.navigationController.navigationBar.frame.size.height/6, circleSize, circleSize)];
+    picView.layer.cornerRadius = circleSize/2;
+    picView.backgroundColor = [UIColor whiteColor];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(1.5, 1.5, circleSize - 3, circleSize - 3)];
+    imgView.backgroundColor = [UIColor clearColor];
+    imgView.image = [UIImage imageNamed:@"propic.jpg"];
+    imgView.layer.cornerRadius = (circleSize - 3)/2;
+    imgView.clipsToBounds = YES;
+    imgView.backgroundColor = [UIColor clearColor];
+    [picView addSubview:imgView];
+    [self.navigationController.navigationBar addSubview:picView];
+    
     
     if([self.tableView respondsToSelector:@selector(layoutMargins)]){
         self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -47,19 +62,25 @@
 
 #pragma mark Table View Data Source
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return HEADER_HEIGHT;
+}
+
+
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
-    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, HEADER_HEIGHT)];
     CALayer *topBorder = [CALayer layer];
-    topBorder.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.0f].CGColor;
-    CALayer *bottomBorder = topBorder;
+    topBorder.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:.75].CGColor;
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:.75].CGColor;
     topBorder.frame = CGRectMake(0, 0, tableView.frame.size.width, 1.f);
-    bottomBorder.frame = CGRectMake(0, view.frame.size.height, tableView.frame.size.width, 1.f);
+    bottomBorder.frame = CGRectMake(0, view.frame.size.height - 1, tableView.frame.size.width, 1.f);
     [view.layer addSublayer:topBorder];
     [view.layer addSublayer:bottomBorder];
 
     UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(3.0*view.frame.size.width/4.0, view.frame.size.height/2.0, 3.0*view.frame.size.width/16.0, view.frame.size.height/2.0)];
-    [labelView setBackgroundColor:[UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0]];
+    [labelView setBackgroundColor:[UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:.75]];
     UILabel *label = [[UILabel alloc] init];
     [label setFont:[UIFont fontWithName:@"Arial" size:10.0]];
     [label setText:[headers objectAtIndex:section]];
@@ -139,8 +160,11 @@
         newImg = [UIImage imageNamed:@"Star"];
         btn.tag = 0;
     }
-    [btn setBackgroundImage:newImg forState:UIControlStateNormal];
     cell.accessoryView = btn;
+    [UIView animateWithDuration:10.f animations:^{
+        [btn setBackgroundImage:newImg forState:UIControlStateNormal];
+    }];
+    
 }
 
 - (void)showSettings{
