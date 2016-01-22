@@ -15,6 +15,9 @@
 		322975931C47411B00F85C13 /* ListyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322975921C47411B00F85C13 /* ListyTests.m */; };
 		3229759E1C47411B00F85C13 /* ListyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229759D1C47411B00F85C13 /* ListyUITests.m */; };
 		325233ED1C4746B000D29B66 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 325233EC1C4746B000D29B66 /* HomeTableViewController.m */; };
+		9D44DA701C52CF4100FB4F87 /* Listy Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D44DA6F1C52CF4100FB4F87 /* Listy Icon.png */; };
+		9D44DA721C52D09500FB4F87 /* listyText.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D44DA711C52D09500FB4F87 /* listyText.png */; };
+		9D44DA761C52D12300FB4F87 /* SplashPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D44DA751C52D12300FB4F87 /* SplashPageViewController.m */; };
 		9D7CC5A51C504BC90021BAF9 /* propic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CC5A41C504BC90021BAF9 /* propic.jpg */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,10 @@
 		3229759F1C47411B00F85C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		325233EC1C4746B000D29B66 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		325233EE1C4746C500D29B66 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		9D44DA6F1C52CF4100FB4F87 /* Listy Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Listy Icon.png"; path = "../../../Downloads/Listy Icon.png"; sourceTree = "<group>"; };
+		9D44DA711C52D09500FB4F87 /* listyText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listyText.png; path = ../../../Downloads/listyText.png; sourceTree = "<group>"; };
+		9D44DA741C52D12300FB4F87 /* SplashPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashPageViewController.h; sourceTree = "<group>"; };
+		9D44DA751C52D12300FB4F87 /* SplashPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashPageViewController.m; sourceTree = "<group>"; };
 		9D7CC5A41C504BC90021BAF9 /* propic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = propic.jpg; path = ../../../Downloads/propic.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +110,8 @@
 		322975771C47411B00F85C13 /* Listy */ = {
 			isa = PBXGroup;
 			children = (
+				9D44DA711C52D09500FB4F87 /* listyText.png */,
+				9D44DA6F1C52CF4100FB4F87 /* Listy Icon.png */,
 				9D7CC5A41C504BC90021BAF9 /* propic.jpg */,
 				3229757B1C47411B00F85C13 /* AppDelegate.h */,
 				3229757C1C47411B00F85C13 /* AppDelegate.m */,
@@ -113,6 +122,8 @@
 				322975781C47411B00F85C13 /* Supporting Files */,
 				325233EC1C4746B000D29B66 /* HomeTableViewController.m */,
 				325233EE1C4746C500D29B66 /* HomeTableViewController.h */,
+				9D44DA741C52D12300FB4F87 /* SplashPageViewController.h */,
+				9D44DA751C52D12300FB4F87 /* SplashPageViewController.m */,
 			);
 			path = Listy;
 			sourceTree = "<group>";
@@ -246,7 +257,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D44DA701C52CF4100FB4F87 /* Listy Icon.png in Resources */,
 				322975881C47411B00F85C13 /* LaunchScreen.storyboard in Resources */,
+				9D44DA721C52D09500FB4F87 /* listyText.png in Resources */,
 				322975851C47411B00F85C13 /* Assets.xcassets in Resources */,
 				9D7CC5A51C504BC90021BAF9 /* propic.jpg in Resources */,
 				322975831C47411B00F85C13 /* Main.storyboard in Resources */,
@@ -275,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				325233ED1C4746B000D29B66 /* HomeTableViewController.m in Sources */,
+				9D44DA761C52D12300FB4F87 /* SplashPageViewController.m in Sources */,
 				3229757D1C47411B00F85C13 /* AppDelegate.m in Sources */,
 				3229757A1C47411B00F85C13 /* main.m in Sources */,
 			);

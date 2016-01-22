@@ -56,7 +56,7 @@
         <scene sceneID="Vap-e0-t5X">
             <objects>
                 <navigationController id="VWo-F1-Jvb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMN-Ed-AgK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xMN-Ed-AgK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
