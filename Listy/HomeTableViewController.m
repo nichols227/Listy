@@ -15,6 +15,9 @@
 @implementation HomeTableViewController{
     NSArray *headers;
     NSArray *rowNames;
+    UIView *picView;
+    UIImageView *imgView;
+    BOOL viewLoaded;
 }
 
 #define HEADER_HEIGHT 50
@@ -41,23 +44,22 @@
         NSLog(@"Failure");
     }
     
-    
-    headers = [[NSArray alloc] initWithObjects:@"Personal", @"Groups", @"Benjamins", nil];
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:.5 blue:1.f alpha:1.f];
     CGFloat circleSize = 3 * self.navigationController.navigationBar.frame.size.height/2;
-    UIView *picView = [[UIView alloc] initWithFrame:CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - circleSize/2, self.navigationController.navigationBar.frame.size.height/6, circleSize, circleSize)];
+    CGRect frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - circleSize/2, self.navigationController.navigationBar.frame.size.height/6, circleSize, circleSize);
+    picView = [[UIView alloc] initWithFrame:frame];
     picView.layer.cornerRadius = circleSize/2;
     picView.backgroundColor = [UIColor whiteColor];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(1.5, 1.5, circleSize - 3, circleSize - 3)];
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(1.5, 1.5, circleSize - 3, circleSize - 3)];
     imgView.backgroundColor = [UIColor clearColor];
     imgView.image = [UIImage imageNamed:@"propic.jpg"];
     imgView.layer.cornerRadius = (circleSize - 3)/2;
     imgView.clipsToBounds = YES;
     imgView.backgroundColor = [UIColor clearColor];
-    [picView addSubview:imgView];
-    [self.navigationController.navigationBar addSubview:picView];
+
+    headers = [[NSArray alloc] initWithObjects:@"Personal", @"Groups", @"Benjamins", nil];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:.5 blue:1.f alpha:1.f];
     
     if([self.tableView respondsToSelector:@selector(layoutMargins)]){
         self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -65,7 +67,27 @@
     if([self.tableView respondsToSelector:@selector(setSeparatorInset:)]){
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
+    viewLoaded = YES;
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (!viewLoaded) {
+        CGRect frame= picView.frame;
+        frame.origin.x += self.navigationController.navigationBar.frame.size.width;
+        [self.navigationController.navigationBar addSubview:picView];
+        [UIView animateWithDuration:.25f animations:^{
+            picView.frame = frame;
+        }];
+    } else {
+        [picView addSubview:imgView];
+        [self.navigationController.navigationBar addSubview:picView];
+    }
+    
+    
+    viewLoaded = NO;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -199,6 +221,16 @@
     if (indPath != nil) {
         [self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indPath];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CGRect newFrame = picView.frame;
+    newFrame.origin.x -= self.navigationController.navigationBar.frame.size.width;
+    [UIView animateWithDuration:.3f animations:^{
+        picView.frame = newFrame;
+    }completion:^(BOOL yes){
+        [picView removeFromSuperview];
+    }];
 }
 
 @end
