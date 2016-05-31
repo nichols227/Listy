@@ -1,0 +1,548 @@
+/* ==========================================================================
+   Universal
+   ========================================================================== */
+   
+body {
+	background-color: #ffffff;
+	font-family: Montserrat;
+}
+
+p {
+	text-align: center;
+	font-size: 1.1em;
+	line-height: 1.5em;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	background: #2681db;
+	text-align: right;
+	z-index: 1000;
+	transition: 250ms ease-in-out;
+}
+
+nav.image {
+	background: transparent;
+	transition: 250ms ease-in-out;
+}
+
+nav.color {
+	background: #2681db;
+	transition: 250ms ease-in-out;
+}
+
+nav img {
+	position: absolute;
+	top: 15px;
+	left: 30px;
+	height: 30px;
+	width: auto;
+}
+
+.main_nav li {
+	text-align: right;
+	display: inline-block;
+	color: white;
+	font-size: 1.2em;
+	margin-right: 40px;
+}
+
+.main_nav li a {
+	text-decoration: none;
+	color: white;
+}
+
+li.active {
+	padding-bottom: 3px;
+	border-bottom: 3px solid white;
+}
+
+li:hover {
+	padding-bottom: 3px;
+	border-bottom: 3px solid rgba(255, 255, 255, .5);
+}
+
+#top {
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	min-height: 500px;
+	background: url('img/cooking.jpg') no-repeat center center;
+	background-size: cover;
+	color: white;
+}
+
+.top_container {
+	position: absolute;
+	width: 500px;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+img.bound {
+	display: block;
+	width: 60%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#sign_up input {
+	text-indent: 20px;
+	display: inline;
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: 400px;
+	height: 50px;
+	font-family: Montserrat;
+	font-size: 1em;
+}
+
+button {
+	display: inline;
+	border: none;
+	margin: 0;
+	margin-left: -5px;
+	padding: 0;
+	width: 100px;
+	height: 50px;
+	background: #2681db;
+	color: white;
+	font-family: Montserrat;
+	font-size: 1em;
+}
+
+#how, #blog, #contact, #team {
+	width: 100%;
+	height: auto;
+}
+
+#blog, #contact {
+	min-height: 100vh;
+}
+h1 {
+	font-size: 2em;
+	padding-bottom: 6px;
+	display: inline-block;
+	border-bottom: 6px solid black;
+	margin-top: 0;
+}
+
+.heading {
+	width: 100%;
+	min-height: 32px;
+	height: auto;
+	text-align: center;
+}
+
+.container {
+	max-width: 800px;
+	width: 80%;
+	height: auto;
+	margin: auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	text-align: center;
+}
+
+.step {
+	display: inline-block;
+	min-width: 130px;
+	width: 25%;
+	margin-left: 3%;
+	margin-right: 3%;
+	text-align: center;
+	vertical-align: top;
+}
+
+.step img {
+	display: inline-block;
+	height: 120px;
+	width: auto;
+	margin-top: 20px;
+}
+
+#footer {
+	display: table;
+	width: 100%;
+	min-height: 120px;
+	height: auto;
+	background: #333333;
+	text-align: center;
+	color: white;
+}
+
+#footer p {
+	padding: 30px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+span.avoidwrap { 
+	display: inline-block; 
+}
+
+.toggle {
+	display: none;
+}
+
+.exit {
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	top: 15px;
+	right: 15px;
+	left: auto;
+	display: none;
+}
+
+.main_nav.mobile .exit{
+	display: block;
+}
+
+.main_nav.mobile {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100vh;
+	z-index: 2000;
+	background: #2681db;
+}
+
+.main_nav.mobile ul {
+	display: block;
+	margin-top: 25%;
+	height: 75%;
+	width: 100%;
+	padding: 0;
+}
+
+.main_nav.mobile ul li {
+	display: block;
+	height: 33%;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 3em;
+}
+
+.main_nav.mobile ul li.active {
+	border: none;
+}
+/* ==========================================================================
+   Blog
+   ========================================================================== */
+
+.container.blog {
+	max-width: 1200px;
+	width: 90%;
+	margin-top: 60px;
+	margin: auto;
+	height: auto;
+}
+
+
+.blog_main {
+	display: inline-block;
+	height: auto;
+	width: 60%;
+}
+
+.blog_side {
+	display: inline-block;
+	margin-top: 60px;
+	margin-left: 4%;
+	height: auto;
+	width: 35%;
+	background: #f4f4f4;
+	vertical-align: top;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.3em;
+	color: #2681db;
+	margin-top: 0;
+	padding-top: 30px;
+}
+
+.post a {
+	font-size: 1.1em;
+	text-decoration: none;
+	color: #444444;
+	font-weight: 700;
+}
+
+.post a:hover {
+	color: #2681db;
+}
+
+.post {
+	height: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.post p {
+	font-family: muli;
+	letter-spacing: 0;
+	font-size: 1em;
+	text-align: left;
+}
+
+.blog_side p {
+	font-family: muli;
+	letter-spacing: 0;
+	font-size: 1em;
+	text-align: left;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+p.date {
+	font-family: muli;
+	letter-spacing: 0;
+	font-size: 1em;
+	text-align: center;
+	font-style: italic;
+	color: #444444;
+}
+
+#blog_search input {
+	display: inline;
+	width: calc(100% - 100px);
+	height: 40px;
+	border: none;
+	text-indent: 20px;
+	font-family: Montserrat;
+	font-size: 1em;
+}
+
+#blog_search {
+	padding-bottom: 30px;
+}
+
+#blog_search button {
+	display: inline;
+	border: none;
+	margin: 0;
+	margin-left: -5px;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	background: url('img/search_icon.png') center center;
+	background-size: contain;
+	background-color: #2681db;
+}
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.container.contact {
+	max-width: 550px;
+	padding-top: 100px;
+	padding-bottom: 60px;
+}
+
+#email_us label {
+	display: block;
+	text-align: left;
+	margin-top: 20px;
+	height: 50px;
+	width: 70px;
+	font-family: Montserrat;
+	font-size: 1em;
+	line-height: 50px;
+	margin-bottom: -51px;
+	text-indent: 20px;
+}
+
+#email_us input {
+	text-indent: 80px;
+	display: block;
+	border: none;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding: 0;
+	width: 100%;
+	height: 50px;
+	font-family: Montserrat;
+	font-size: 1em;
+	background: #f4f4f4;
+}
+
+#email_us textarea {
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	border: none;
+	width: calc(100% - 40px);
+	height: 150px;
+	font-family: Montserrat;
+	font-size: 1em;
+	background: #f4f4f4;
+}
+
+#email_us button {
+	display: block;
+	border: none;
+	margin: 0;
+	margin-left: calc(100% - 100px);
+}
+	
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media screen and (max-width: 800px) {
+	.blog_main {
+		display: block;
+		width: 100%;
+	}
+
+	.blog_side {
+		display: block;
+		margin-left: 0;
+		width: 100%;
+	}
+	
+	.container.blog {
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	#sign_up input {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+
+	.top_container {
+		position: absolute;
+		width: 80%;
+		height: auto;
+	}
+
+	form button {
+		display: block;
+		border: none;
+		margin-top: 20px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.step {
+		display: inline-block;
+		min-width: 130px;
+		width: 70%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	nav {
+		height: 50px;
+	}
+	
+	.toggle {
+		display: block;
+		position: absolute;
+		top: 15px;
+		left: 20px;
+		height: 20px;
+		width: auto;
+	}
+	
+	.logo, .main_nav {
+		display: none;
+	}
+	
+	nav.image {
+		background: #2681db;
+	}
+	
+	.container.contact {
+		padding-top: 80px;
+	}
+	
+	li:hover {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+}
+
+@media screen and (max-height: 500px) {
+	.top_container {
+		display: block;
+		top: 100px;
+		padding-bottom: 100px;
+		transform: translate(-50%,0%)
+	}
+	#top {
+		min-height: 500px;
+		height: auto;
+	}
+	
+	nav {
+		height: 50px;
+	}
+	
+	nav.image {
+		background: #2681db;
+
+	}
+	
+	.toggle {
+		display: block;
+		position: absolute;
+		top: 15px;
+		left: 20px;
+		height: 20px;
+		width: auto;
+	}
+	
+	.logo, .main_nav {
+		display: none;
+	}
+	
+	.container.contact {
+		padding-top: 80px;
+	}
+	
+	.blog_main {
+		display: block;
+		width: 100%;
+	}
+
+	.blog_side {
+		display: block;
+		margin-left: 0;
+		width: 100%;
+	}
+	
+	.container.blog {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	li:hover {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+}
