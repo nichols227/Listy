@@ -12,32 +12,34 @@
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main_3.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>!window.jQuery && document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="main.js"></script>
     
 </head>
 <body>
 	<nav class="image">
-		<a href="../"><img class="logo" src="/img/listy_icon_3.png"></a>
-		<img class="toggle" src="/img/menu_icon.png">
+		<a href="#"><img class="logo" src="img/listy_icon_3.png"></a>
+		<img class="toggle" src="img/menu_icon.png">
 		<div class="main_nav">
-			<img class="exit" src="/img/exit.png">
+			<img class="exit" src="img/exit.png">
 			<ul>
-				<li class="active"><a href="../">Home</a></li>
-				<li><a href="/blog/">Blog</a></li>
-				<li><a href="/contact/">Contact</a></li>
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="blog/index.html">Blog</a></li>
+				<li><a href="contact/index.html">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
 	<div id="top">
 		<div class="top_container">
 			<img class="bound" src="img/listy_name_3.png">
-			<p>The world's first grocery delivery comparison tool<p>
-			<form id="sign_up">
-				<input type="text" placeholder="Email me when it's ready" required>
-				<button type="submit" value="Send">SEND</button>
-			</form>
-			<p>Launching Summer 2016<p>
+			<p>The world's first grocery delivery comparison tool</p>
+			<p id='error' style='display:none'>Please enter a valid email address</p>
+			<p id='success' style='display:none'>Thanks for your interest in Listy!</p>
+			<div id="sign_up">
+				<input type="text" id='email' placeholder="Email me when it's ready">
+				<button id='signUpSubmit'>SEND</button>
+			</div>
+			<p>Launching Summer 2016</p>
 		</div>
 	</div>
 	<div id="how">
