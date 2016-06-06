@@ -266,6 +266,7 @@ span.avoidwrap {
 
 h2 {
 	font-size: 1.6em;
+	text-align: left;
 }
 
 h3 {
@@ -275,15 +276,21 @@ h3 {
 	padding-top: 30px;
 }
 
-.post a {
-	font-size: 1.1em;
+a.read_more {
+	font-size: 1em;
 	text-decoration: none;
 	color: #444444;
 	font-weight: 700;
+	font-family: Montserrat;
+	text-align: center;
 }
 
-.post a:hover {
+a.read_more:hover {
 	color: #2681db;
+}
+
+.post p br {
+	line-height: .5em;
 }
 
 .post {
@@ -301,6 +308,39 @@ h3 {
 	font-size: 1em;
 	text-align: left;
 }
+
+.post .return {
+	display: none;
+}
+
+.post.focus {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	top: 60px;
+	left: 0;
+	padding-bottom: 60px;
+	background: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.post.focus .return {
+	display: block;
+	text-align: left;
+	color: #444444;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.post.focus .post_text {
+	width: 80%;
+	max-width: 800px;
+	height: auto;
+	margin: auto;
+}
+	
 
 .blog_side p {
 	font-family: muli;
