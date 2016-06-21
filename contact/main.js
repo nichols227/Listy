@@ -1,15 +1,22 @@
 $(document).ready(function(){
-	$('#signUpSubmit').click(function(){
+	$('#formSubmit').click(function(){
 		var emailString = $('#email').val()
 		if(emailString.indexOf("@") == -1 || emailString.indexOf(".") == -1){
-			$('#email').val('')
-			$('#error').show()
-			return
+			$('#email').val('');
+			$('#error').show();
+			return;
 		}
-		$('#email').val('')
-		$('#success').show()
-		var emailData = {'email': emailString}
-		console.log(emailData)
+		var nameArray = $('#name').val().split(' ');
+		if(nameArray.length == 1){
+			var lastName = '';
+		}
+		else{ 
+			lastName = nameArray.slice(1).join(' ');
+		}
+		var emailData = {'email': emailString, 'firstName': nameArray[0], 'lastName': lastName, 'text': $('#form').val()};
+		console.log(emailData);
+		$('#email').val('');
+		$('#success').show();
 		$.ajax({
 			url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/email',
 			method: 'POST',
@@ -20,6 +27,7 @@ $(document).ready(function(){
 				data = JSON.parse(data)
 				console.log(data)
 				console.log(data.email)
+				
 				$.ajax({
 					url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/sendemail',
 					method: 'POST',

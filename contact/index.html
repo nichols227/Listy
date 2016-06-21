@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/main_3.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src='main.js'></script>
     
 </head>
 <body>
@@ -31,13 +32,15 @@
 	<div id="contact">
 		<div class="container contact">
 			<h2>Drop us a line</h2>
-			<form id="email_us">
+			<p id='error' style='display:none'>Please enter a valid email address</p>
+			<p id='success' style='display:none'>Thanks for your interest in Listy!</p>
+			<div id="email_us">
 				<label for="name">Name</label>
-				<input type="text" name="name" placeholder="First Last" required>
+				<input type="text" name="name" id='name' placeholder="First Last">
 				<label for="email">Email</label>
-				<input type="text" name="email" placeholder="example@email.com" required>
-				<textarea placeholder="I can't wait for this app to launch..." required></textarea>
-				<button type="submit" value="Send">SEND</button>
+				<input type="text" name="email" placeholder="example@email.com" id='email' required>
+				<textarea placeholder="I can't wait for this app to launch..." id='form' required></textarea>
+				<button id="formSubmit">SEND</button>
 			</form>
 		</div>
 	</div>
