@@ -34,12 +34,24 @@ nav.color {
 	transition: 250ms ease-in-out;
 }
 
-nav img {
-	position: absolute;
-	top: 15px;
-	left: 30px;
+.home {
+	float: left;
+	margin-top: 15px;
+	margin-left: 30px;
 	height: 30px;
 	width: auto;
+}
+
+img {
+	vertical-align: top;
+}
+
+.logo {
+	height: 24px;
+	width: auto;
+}
+.main_nav ul {
+	line-height: 24px;
 }
 
 .main_nav li {
@@ -48,6 +60,7 @@ nav img {
 	color: white;
 	font-size: 1.2em;
 	margin-right: 40px;
+	line-height: 24px;
 }
 
 .main_nav li a {
@@ -60,7 +73,19 @@ li.active {
 	border-bottom: 3px solid white;
 }
 
-li:hover {
+li.activeCircle {
+	padding: 3px 5px;
+	border: 3px solid white;
+	border-radius: 10px;
+}
+
+li.activeCircle:hover {
+	padding: 3px 5px;
+	border: 3px solid rgba(255, 255, 255, .5);
+	border-radius: 10px;
+}
+
+li.header:hover {
 	padding-bottom: 3px;
 	border-bottom: 3px solid rgba(255, 255, 255, .5);
 }
