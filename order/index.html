@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Listy | Contact Us</title>
+    <title>Listy | Order</title>
     <meta http-equiv="cache-control" content="public">
     <meta charset="UTF-8">
     <meta name="description" content="The world's first grocery delivery comparison tool. Never get served by your grocery service again. Launching soon.">
@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../css/main_3.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src='main.js'></script>
+    <script type="text/javascript" src='../main.js'></script>
+    <script type="text/javascript" src='order.js'></script>
     
 </head>
 <body>
@@ -30,10 +31,34 @@
 			</ul>
 		</div>
 	</nav>
-	<div id='container content'>
+	<div id='order' class='container order'>
 		<div id='list'>
-			<h3>My list</h3>
-			
+			<h3>My List</h3>
+			<div id='listContainer'>
+			</div>
+			<button id='editList' style='float:left;margin-top: 20px;'>Edit List</button>
+			<button id="sendList" style='margin-top: 20px;'>Send List</button>
+		</div>
+
+		<div id='add'>
+			<div style='margin: 30px 0px; font-weight: bold; width: 100%'>
+				Add an item:
+			</div>
+			<div style='display:none;' class='errorMessage'>Please fill out all fields</div>
+			<div id='addForm'>
+				<label for="name" style='color:rgba(200, 200, 200, 1); font-size: 3em;'>+</label>
+				<input class='fullInput' type="text" name="name" id='name' placeholder="Add item">
+				<label>Quantity</label>
+				<input type="number" name="amount" id='amount' placeholder="#" style='width:50px;margin-left:114px; margin-right: 2%'>
+				<input type="text" name="quantity" id='quantity' placeholder="gal, package, pint..." style='width:calc(98% - 164px);'>
+				
+			</div>
+				<button id="addItem" style='margin-top: 20px;margin-left:100px;'>Add Item</button>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>© 2016 Listy, <span class="avoidwrap">Crafted at Northwestern University</span></p>
 	</div>
 
 </body>

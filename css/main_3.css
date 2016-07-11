@@ -143,12 +143,12 @@ button {
 	font-size: 1em;
 }
 
-#how, #blog, #contact, #team {
+#how, #blog, #contact, #team{
 	width: 100%;
 	height: auto;
 }
 
-#blog, #contact {
+#blog, #contact{
 	min-height: 100vh;
 }
 h1 {
@@ -294,11 +294,16 @@ h2 {
 	text-align: left;
 }
 
-h3 {
+h3{
 	font-size: 1.3em;
 	color: #2681db;
 	margin-top: 0;
 	padding-top: 30px;
+}
+
+.h3{
+	font-size: 1.3em;
+	color: #2681db;
 }
 
 a.read_more {
@@ -467,7 +472,139 @@ p.date {
 	margin-left: calc(100% - 100px);
 }
 	
+/* ==========================================================================
+   Order
+   ========================================================================== */
 
+hr {
+	background-color: rgba(230, 230, 230, .75);
+	color:  rgba(230, 230, 230, .75);
+	border-color:  rgba(230, 230, 230, .75);
+	margin-left: .5em;
+	margin-right: .5em;
+	height: 1px;
+	border: none;
+}
+
+#list, #add {
+	padding-bottom: 50px;
+}
+
+#list {
+	width: 40%;
+	float: left;
+	padding-right: 5%
+}
+
+#add {
+	height: 100%;
+	width: 45%;
+	float: right;
+	padding-left: 5%;
+	padding-right: 5%;
+	background: #F3F3F5;
+}
+
+.quantity {
+	text-align: right;
+	float: right;
+}
+
+.itemName {
+	text-align: left;
+}
+#order {
+	min-width: 60%;
+	text-align: left;
+	overflow: auto;
+}
+
+.remove{
+	color: red;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.item{
+	border: 1px solid rgba(230, 230, 230, .75);
+	border-width: 0px 0px 1px 0px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+
+}
+
+.itemHighlight:hover{
+	background-color: rgba(230, 230, 230, .75);
+	cursor: pointer;
+}
+
+.editedItem {
+	background-color: rgba(230, 230, 230, .75);
+}
+
+#addForm input:focus{
+	outline: none !important;
+	box-shadow: 0 0 0 2px #A4C6FD;
+	/*border: 2px solid #A4C6FD;
+	border-radius: 10px;*/
+}
+
+#addForm input.error{
+	box-shadow: 0 0 0 2px red;
+}
+
+#addForm input {
+	display: block;
+	border-radius: 10px;
+	border: 1px white;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding: 0;
+	height: 50px;
+	font-family: Montserrat;
+	font-size: 1em;
+	float: left;
+	text-indent: 10px;
+}
+
+#addForm .fullInput{
+	text-indent: 70px;
+	width: 100%;
+}
+
+#addForm label {
+	display: block;
+	text-align: left;
+	margin-top: 20px;
+	height: 50px;
+	width: 70px;
+	font-family: Montserrat;
+	font-size: 1em;
+	line-height: 50px;
+	margin-bottom: -51px;
+	text-indent: 10px;
+}
+
+.order button {
+	display: block;
+	border-radius: 10px;
+	margin: 0;
+	float: right;
+}
+
+.order button:hover{
+	background-color: #1F67AD;
+}
+
+.order button:focus{
+	outline: none !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */
