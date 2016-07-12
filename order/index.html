@@ -76,11 +76,18 @@
 			<input type="text" name="email" placeholder="example@email.com" id='email' required>
 			<label for="phone">Phone</label>
 			<input type="text" name="phone" placeholder="(555)-555-5555" id='phone' required>
+			<label for="delivery">Delivery</label>
+			<input type="text" name="delivery" placeholder="When do you want it delivered?" id='delivery' required>
 			<textarea placeholder="Additional Instructions..." id='instruct'></textarea>
 
 			<button id="formSubmit">SEND</button>
 			<button id="goBack" style='float:left;'>Back to List</button>
 		</div>
+	</div>
+
+	<div id='confirmation' class='container order' style='display:none;text-align:center;'>
+		<h2 style='text-align:center;'>Thank you for your order!</h2>
+		<div>You will receive a confirmation text/email shortly</div>
 	</div>
 
 

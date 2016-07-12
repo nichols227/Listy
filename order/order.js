@@ -139,7 +139,7 @@ $(document).ready(function() {
 				return;
 			}
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
-			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val()}
+			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#delivery').val()};
 			console.log(data);
 			$.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
@@ -148,6 +148,8 @@ $(document).ready(function() {
 				processData: false,
 				contentType: 'application/json'
 			});
+			$('#contactInfo').hide();
+			$('#confirmation').show();
 		}
 	});
 
