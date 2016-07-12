@@ -1,7 +1,9 @@
-editing = false;
-editedItem = false;
-count = 1;
-currentID = '';
+var editing = false;
+var editedItem = false;
+var count = 1;
+var currentID = '';
+var textbox = false;
+var list;
 $(document).ready(function() {
 	$('#addItem').click(function(){
 		var empty = false;
@@ -18,6 +20,7 @@ $(document).ready(function() {
 			$(currentID).find('.quantity').html($('#amount').val() + ' ' + $('#quantity').val());
 			editedItem = false;
 			$(currentID).removeClass('editedItem');
+			$('#addItem').text('Add Item');
 			$('#addForm input').each(function(){
 				$(this).val('');
 			});
@@ -43,7 +46,11 @@ $(document).ready(function() {
 	});
 
 	$('#editList').click(function() {
+		if($('#listContainer').is(':empty')){
+			return;
+		}
 		$('.item').toggleClass('itemHighlight');
+		$('.editedItem').removeClass('editedItem');
 		if(editing){
 			$('.remove').remove();
 		} else {
@@ -53,11 +60,16 @@ $(document).ready(function() {
 		$('.remove').click(function(){
 			$(this).parent().remove();
 			event.stopPropagation();
+			if($('#listContainer').is(':empty')){
+				editing = false
+			}
 		});
 
 		$('.itemHighlight').click(function(){
-			currentID = $(this).attr('id');
+			$('.editedItem').removeClass('editedItem');
+			currentID = '#' + $(this).attr('id');
 			$(this).addClass('editedItem');
+			$('#addItem').text('Edit Item');
 			editedItem = true;
 			$('#name').val($(this).find('.itemName').text());
 			var split = $(this).find('.quantity').text().split(' ');
@@ -67,5 +79,82 @@ $(document).ready(function() {
 		editing = !editing;
 	});
 
+	$('#switch').click(function(){
+		if(textbox){
+			$('#textList').hide();
+			$('#editList').show();
+			$('#add').show();
+			$('#listContainer').show();
+			$(this).text('Use a textbox instead');
+		} else {
+			$('#textList').show();
+			$('#editList').hide();
+			$('#add').hide();
+			$('#listContainer').hide();
+			$(this).text('Use a form instead');
+		}
+		$('#list').toggleClass('list');
+		$('#list').toggleClass('listAlone');
+		textbox = !textbox;
+	});
+
+	$('#sendList').click(function(){
+		if(textbox){
+			list = $('#textList').val();
+		} else {
+			list = '';
+			$('.item').each(function(){
+				list += $(this).find('.itemName').text() + ' - ' + $(this).find('.quantity').text() + '\n';
+			});
+		}
+		$('.change').hide();
+		$('#order').hide();
+		$('#contactInfo').show();		
+	});
+
+	$('#goBack').click(function(){
+		$('.change').show();
+		$('#order').show();
+		$('#contactInfo').hide();
+
+	})
+
+	$('#formSubmit').click(function(){
+		var empty = false;
+		$('#contactForm input').each(function(){
+			if($(this).val() == ''){
+				empty = true;
+				$(this).addClass('error');
+			}
+		});
+		if(empty){
+			$('.contactErrorMessage').show();
+		} else{
+			var emailString = $('#email').val()
+			if(emailString.indexOf("@") == -1 || emailString.indexOf(".") == -1){
+				$('#email').val('');
+				$('#email').addClass('error');
+				$('.contactErrorMessage').text("Please use a valid email address");
+				$('.contactErrorMessage').show();
+				return;
+			}
+			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
+			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val()}
+			console.log(data);
+			$.ajax({
+				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
+				method: 'POST',
+				data: JSON.stringify(data),
+				processData: false,
+				contentType: 'application/json'
+			});
+		}
+	});
+
+	$('#contactForm input').focus(function() {
+		$(this).removeClass('error');
+		$('.contactErrorMessage').hide();
+		$('.contactErrorMessage').text("Please fill out all fields");
+	});
 
 })

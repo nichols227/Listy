@@ -490,10 +490,14 @@ hr {
 	padding-bottom: 50px;
 }
 
-#list {
+.list {
 	width: 40%;
 	float: left;
 	padding-right: 5%
+}
+
+.listAlone {
+	width: 100%;
 }
 
 #add {
@@ -513,7 +517,7 @@ hr {
 .itemName {
 	text-align: left;
 }
-#order {
+.order {
 	min-width: 60%;
 	text-align: left;
 	overflow: auto;
@@ -549,7 +553,7 @@ hr {
 	border-radius: 10px;*/
 }
 
-#addForm input.error{
+#addForm input.error, #contactForm input.error{
 	box-shadow: 0 0 0 2px red;
 }
 
@@ -585,6 +589,53 @@ hr {
 	text-indent: 10px;
 }
 
+#contactForm label {
+	display: block;
+	text-align: left;
+	margin-top: 20px;
+	height: 50px;
+	width: 70px;
+	font-family: Montserrat;
+	font-size: 1em;
+	line-height: 50px;
+	margin-bottom: -51px;
+	text-indent: 20px;
+}
+
+#contactForm input {
+	text-indent: 100px;
+	display: block;
+	border: none;
+	margin-left: 5px;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding: 0;
+	width: 95%;
+	height: 50px;
+	font-family: Montserrat;
+	float: left;
+	font-size: 1em;
+	background: #f4f4f4;
+}
+
+#contactForm #city, #contactForm #state, #contactForm #zip {
+	text-indent: 20px;
+	margin-right: 25px;
+}
+
+#contactForm textarea {
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	border: none;
+	width: calc(100% - 40px);
+	height: 150px;
+	font-family: Montserrat;
+	font-size: 1em;
+	background: #f4f4f4;
+}
+
 .order button {
 	display: block;
 	border-radius: 10px;
@@ -599,11 +650,31 @@ hr {
 .order button:focus{
 	outline: none !important;
 }
+
+.order button:disabled{
+	cursor: not-allowed;
+	background-color: rgba(38, 129, 219, .25);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#textList {
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	border: none;
+	width: calc(100% - 40px);
+	height: 150px;
+	font-family: Montserrat;
+	font-size: 1em;
+	background: #f4f4f4;
+	resize: vertical;
 }
 /* ==========================================================================
    Media Queries
