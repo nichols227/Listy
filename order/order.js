@@ -7,7 +7,7 @@ var list;
 $(document).ready(function() {
 	$('#addItem').click(function(){
 		var empty = false;
-		$('#addForm input').each(function(){
+		$('#addForm input[required]').each(function(){
 			if($(this).val() == ''){
 				empty = true;
 				$(this).addClass('error');
@@ -109,12 +109,14 @@ $(document).ready(function() {
 		}
 		$('.change').hide();
 		$('#order').hide();
+		$('#rules').hide();
 		$('#contactInfo').show();		
 	});
 
 	$('#goBack').click(function(){
 		$('.change').show();
 		$('#order').show();
+		$('#rules').show()
 		$('#contactInfo').hide();
 
 	})
@@ -156,7 +158,7 @@ $(document).ready(function() {
 	$('#contactForm input').focus(function() {
 		$(this).removeClass('error');
 		$('.contactErrorMessage').hide();
-		$('.contactErrorMessage').text("Please fill out all fields");
+		$('.contactErrorMessage').text("Please fill out highlighted fields");
 	});
 
 })

@@ -167,7 +167,6 @@ h1 {
 }
 
 .container {
-	max-width: 800px;
 	width: 80%;
 	height: auto;
 	margin: auto;
@@ -509,6 +508,7 @@ hr {
 	background: #F3F3F5;
 }
 
+
 .quantity {
 	text-align: right;
 	float: right;
@@ -518,9 +518,11 @@ hr {
 	text-align: left;
 }
 .order {
-	min-width: 60%;
+	width: 80%;
 	text-align: left;
 	overflow: auto;
+	margin: auto;
+	padding-bottom: 60px;
 }
 
 .remove{
