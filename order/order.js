@@ -171,28 +171,30 @@ $(document).ready(function() {
 				return;
 			}
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
-			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#delivery').val()};
+			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': 'Tuesday July 19th ' + $('#delivery option:selected').text()};
 			console.log(data);
-			$.ajax({
+			var a1 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
 				method: 'POST',
 				data: JSON.stringify(data),
 				processData: false,
-				contentType: 'application/json'
+				contentType: 'application/json',
+
 			});
-			$.ajax({
+			var a2 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
 				method: 'POST',
 				data: JSON.stringify({'time': $('#delivery').val()}),
 				processData: false,
 				contentType: 'application/json',
 				success: function(data, status, xhr){
-					window.location.href = 'confirmation.html';
-				},
-				beforeSend: function(xhr, settings){
-					$('button').prop('disabled', true);
+					
 				}
 			});
+			$('button').prop('disabled', true);
+			$.when(a1, a2).done(function(v1, v2){
+				window.location.href = 'confirmation.html';
+			})
 			
 		}
 	});
