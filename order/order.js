@@ -4,6 +4,36 @@ var count = 1;
 var currentID = '';
 var textbox = false;
 var list;
+$.ajax({
+	url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
+	method: 'GET',
+	success: function(data, status, xhr){
+		console.log(data);
+		timeArr = $.parseJSON(data);
+		for (var i = 0; i < timeArr.length; i++) {
+			var time = timeArr[i];
+			var count = time[1]
+			var time = parseInt(time[0].split(' ')[1].split(':')[0]);
+			var am = 'AM';
+			var optionString = '<option value="' + time +'" ';
+			if(count >=2){
+				optionString += 'disabled';
+			}
+			if(time > 12){
+				am = 'PM';
+				time -= 12;
+			}
+			optionString += '>' + time + ':00 ' + am + ' - ';
+			if(time == 12){
+				optionString += '1:00 PM</option>';
+			} else {
+				optionString += (time + 1) + ":00 " + am + "</option>";
+			}
+			$('#delivery').append(optionString)
+		}
+	}
+})
+
 $(document).ready(function() {
 	$('#addItem').click(function(){
 		var empty = false;
@@ -150,8 +180,20 @@ $(document).ready(function() {
 				processData: false,
 				contentType: 'application/json'
 			});
-			$('#contactInfo').hide();
-			$('#confirmation').show();
+			$.ajax({
+				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
+				method: 'POST',
+				data: JSON.stringify({'time': $('#delivery').val()}),
+				processData: false,
+				contentType: 'application/json',
+				success: function(data, status, xhr){
+					window.location.href = 'confirmation.html';
+				},
+				beforeSend: function(xhr, settings){
+					$('button').prop('disabled', true);
+				}
+			});
+			
 		}
 	});
 
