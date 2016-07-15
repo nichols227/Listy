@@ -653,7 +653,7 @@ hr {
 	outline: none !important;
 }
 
-.order button:disabled{
+button:disabled{
 	cursor: not-allowed;
 	background-color: rgba(38, 129, 219, .25);
 }

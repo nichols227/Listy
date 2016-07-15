@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Listy</title>
+    <title>Simplist</title>
     <meta http-equiv="cache-control" content="public">
     <meta charset="UTF-8">
     <meta name="description" content="The world's first grocery delivery comparison tool. Never get served by your grocery service again. Launching soon.">
-    <meta name="author" content="Listy">
+    <meta name="author" content="Simplist">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/normalize.min.css?v=1.0">
     <link rel="stylesheet" href="css/main_3.css?v=1.0">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="main.js?v=1.0"></script>
-    
+    <script src="js/main.js"></script>
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-80838161-1', 'auto');
+	  ga('require', 'linkid');
+	  ga('send', 'pageview');
+
+	</script>
 </head>
 <body>
 	<nav class="image">
@@ -32,10 +43,11 @@
 	</nav>
 	<div id="top">
 		<div class="top_container">
-			<img class="bound" src="img/listy_name_3.png">
+			<!--<img class="bound" src="img/listy_name_3.png">-->
+			<div style='font-size:5em; margin: none; text-align:center;'>Simplist</div>
 			<p>The world's first grocery delivery comparison tool</p>
 			<p id='error' style='display:none'>Please enter a valid email address</p>
-			<p id='success' style='display:none'>Thanks for your interest in Listy!</p>
+			<p id='success' style='display:none'>Thanks for your interest in Simplist!</p>
 			<div id="sign_up">
 				<input type="text" id='email' placeholder="Email me when it's ready">
 				<button id='signUpSubmit'>SEND</button>
@@ -46,7 +58,7 @@
 	<div id="how">
 		<div class="container">
 			<div class="heading"><h1>How it works</h1></div>
-			<p>Listy is intended to make grocery shopping both easier and cheaper, allowing you to have all your groceries delivered and for 
+			<p>Simplist is intended to make grocery shopping both easier and cheaper, allowing you to have all your groceries delivered and for 
 			the lowest price possible. <b>Every. Single. Time.</b></p>
 				<div class="step">
 					<img src="img/how_01.png">
@@ -60,12 +72,12 @@
 					<img src="img/how_03.png">
 					<p>And they'll deliver the food straight to your door</p>
 				</div>
-			<p>Listy will be launching as a web application so that you can access it whenever, wherever, you need it.</p>
+			<p>Simplist will be launching as a web application so that you can access it whenever, wherever, you need it.</p>
 		</div>
 	</div>
 	<div id="footer">
-		<p>© 2016 Listy, <span class="avoidwrap">Crafted at Northwestern University</span></p>
+		<p>© 2016 Simplist, <span class="avoidwrap">Crafted at Northwestern University</span></p>
 	</div>
 	
-	<script src="js/main.js"></script>
+	
 </body>

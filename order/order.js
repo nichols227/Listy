@@ -140,7 +140,8 @@ $(document).ready(function() {
 		$('.change').hide();
 		$('#order').hide();
 		$('#rules').hide();
-		$('#contactInfo').show();		
+		$('#contactInfo').show();
+		window.scrollTo(0,0)
 	});
 
 	$('#goBack').click(function(){
