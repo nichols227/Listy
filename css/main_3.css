@@ -485,50 +485,21 @@ hr {
 	border: none;
 }
 
-#list, #add {
-	padding-bottom: 50px;
-}
-
 .list {
-	width: 40%;
+	width: 100%;
 	float: left;
-	padding-right: 5%
 }
 
 .listAlone {
 	width: 100%;
 }
 
-#add {
-	height: 100%;
-	width: 45%;
-	float: right;
-	padding-left: 5%;
-	padding-right: 5%;
-	background: #F3F3F5;
-}
-
-
-.quantity {
-	text-align: right;
-	float: right;
-}
-
-.itemName {
-	text-align: left;
-}
 .order {
 	width: 80%;
 	text-align: left;
 	overflow: auto;
 	margin: auto;
 	padding-bottom: 60px;
-}
-
-.remove{
-	color: red;
-	margin-right: 15px;
-	cursor: pointer;
 }
 
 .item{
@@ -681,15 +652,27 @@ input::-webkit-inner-spin-button {
 
 #contactForm select {
 	height: 50px;
-	width: calc(95% - 400px);
+	width: calc(45% - 75px);
 	font-family: Montserrat;
 	font-size: 1em;
 	background: #f4f4f4;
-	float: right;
 	margin-bottom: 20px;
 	border: none;
+	float: left;
 	margin-right: 5%;
 	text-indent: 20px
+}
+
+#day{
+	margin-left: 150px;
+}
+
+#rulesMobile {
+	display: none;
+}
+
+.hidden {
+	display: none;
 }
 
 /* ==========================================================================
@@ -716,10 +699,13 @@ input::-webkit-inner-spin-button {
 
 @media screen and (max-width: 650px) {
 	#sign_up input {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 100%;
+		width: 80%;
+		min-width: 200px;
+	}
+
+	#signUpSubmit {
+		width: 20%;
+		min-width: 50px;
 	}
 
 	.top_container {
@@ -757,6 +743,10 @@ input::-webkit-inner-spin-button {
 		width: auto;
 	}
 	
+	.home {
+		display: none;
+	}
+
 	.logo, .main_nav {
 		display: none;
 	}
@@ -772,6 +762,48 @@ input::-webkit-inner-spin-button {
 	li:hover {
 		padding-bottom: 0;
 		border-bottom: none;
+	}
+
+	#textList {
+		display: block;
+		width: 100%;
+	}
+
+	.list {
+		width: 80%;
+	}
+
+	#sendList {
+		float: left;
+	}
+
+	.change, #add, #editList {
+		display: none;
+	}
+
+	#contactForm select {
+		width: 95%;
+	}
+
+	#contactForm #day {
+		margin-left: 0px;
+		text-indent: 115px;
+	}
+
+	#rules {
+		display: none;
+	}
+
+	#rulesMobile {
+		display: block;
+	}
+
+	.order {
+	padding-top: 60px;
+	}
+
+	#rulesMobile.hidden {
+		display: none;
 	}
 
 }
@@ -804,6 +836,10 @@ input::-webkit-inner-spin-button {
 		left: 20px;
 		height: 20px;
 		width: auto;
+	}
+
+	.home {
+		display: none;
 	}
 	
 	.logo, .main_nav {

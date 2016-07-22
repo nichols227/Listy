@@ -1,9 +1,8 @@
-var editing = false;
-var editedItem = false;
-var count = 1;
-var currentID = '';
-var textbox = false;
 var list;
+var dayList =[];
+var dayCounter = -1;
+var d = new Date(0);
+var previousDate = d.toString().split(' ').slice(0,3).join(' ');
 $.ajax({
 	url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
 	method: 'GET',
@@ -13,143 +12,62 @@ $.ajax({
 		for (var i = 0; i < timeArr.length; i++) {
 			var time = timeArr[i];
 			var count = time[1]
+			var date = new Date(time[0]);
+			var day = date.toString().split(' ').slice(0,3).join(' ');
+			if(previousDate != day){
+				dayCounter += 1;
+				$('#day').append("<option value='" + dayCounter +"'>" + day + "</option>")
+				dayList[dayCounter] = '';
+				previousDate = day;
+			}
 			var time = parseInt(time[0].split(' ')[1].split(':')[0]);
 			var am = 'AM';
-			var optionString = '<option value="' + time +'" ';
+			var val = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + time + ":00:00";
+			var optionString = '<option value="' + val +'" ';
 			if(count >=2){
 				optionString += 'disabled';
 			}
 			if(time > 12){
 				am = 'PM';
 				time -= 12;
+			} else if(time == 12){
+				am = 'PM'
 			}
 			optionString += '>' + time + ':00 ' + am + ' - ';
 			if(time == 12){
 				optionString += '1:00 PM</option>';
-			} else {
+			} else if(time == 11){
+				optionString += '12:00 PM</option>'
+			}else {	
 				optionString += (time + 1) + ":00 " + am + "</option>";
 			}
-			$('#delivery').append(optionString)
+			dayList[dayCounter] += optionString;
 		}
+		$('#delivery').append(dayList[0]);
 	}
 })
 
 $(document).ready(function() {
-	$('#addItem').click(function(){
-		var empty = false;
-		$('#addForm input[required]').each(function(){
-			if($(this).val() == ''){
-				empty = true;
-				$(this).addClass('error');
-			}
-		});
-		if(empty){
-			$('.errorMessage').show();
-		} else if(editedItem){
-			$(currentID).find('.itemName').html($('#name').val());
-			$(currentID).find('.quantity').html($('#amount').val() + ' ' + $('#quantity').val());
-			editedItem = false;
-			$(currentID).removeClass('editedItem');
-			$('#addItem').text('Add Item');
-			$('#addForm input').each(function(){
-				$(this).val('');
-			});
-		} else {
-			var newItem;
-			if(editing){
-				newItem = '<div class="item itemHighlight" id="item' + count + '"><span class="remove">x</span>'
-			} else {
-				newItem = '<div class="item" id="item' + count + '">';
-			}
-			newItem += '<span class="itemName">' + $('#name').val() +'</span><span class="quantity">' + $('#amount').val() + ' ' + $('#quantity').val() + '</span></div>';
-			$('#listContainer').append(newItem);
-			$('#addForm input').each(function(){
-				$(this).val('');
-			});
-			count += 1;
-		}
-	});
-
-	$('#addForm input').focus(function() {
-		$(this).removeClass('error');
-		$('.errorMessage').hide();
-	});
-
-	$('#editList').click(function() {
-		if($('#listContainer').is(':empty')){
-			return;
-		}
-		$('.item').toggleClass('itemHighlight');
-		$('.editedItem').removeClass('editedItem');
-		if(editing){
-			$('.remove').remove();
-		} else {
-			$('.item').prepend('<span class="remove">x</span>');
-		}
-
-		$('.remove').click(function(){
-			$(this).parent().remove();
-			event.stopPropagation();
-			if($('#listContainer').is(':empty')){
-				editing = false
-			}
-		});
-
-		$('.itemHighlight').click(function(){
-			$('.editedItem').removeClass('editedItem');
-			currentID = '#' + $(this).attr('id');
-			$(this).addClass('editedItem');
-			$('#addItem').text('Edit Item');
-			editedItem = true;
-			$('#name').val($(this).find('.itemName').text());
-			var split = $(this).find('.quantity').text().split(' ');
-			$('#amount').val(split[0]);
-			$('#quantity').val(split.slice(1).join(' '));
-		})
-		editing = !editing;
-	});
-
-	$('#switch').click(function(){
-		if(textbox){
-			$('#textList').hide();
-			$('#editList').show();
-			$('#add').show();
-			$('#listContainer').show();
-			$(this).text('Use a textbox instead');
-		} else {
-			$('#textList').show();
-			$('#editList').hide();
-			$('#add').hide();
-			$('#listContainer').hide();
-			$(this).text('Use a form instead');
-		}
-		$('#list').toggleClass('list');
-		$('#list').toggleClass('listAlone');
-		textbox = !textbox;
-	});
-
 	$('#sendList').click(function(){
-		if(textbox){
-			list = $('#textList').val();
-		} else {
-			list = '';
-			$('.item').each(function(){
-				list += $(this).find('.itemName').text() + ' - ' + $(this).find('.quantity').text() + '\n';
-			});
-		}
-		$('.change').hide();
+		list = $('#textList').val();
 		$('#order').hide();
-		$('#rules').hide();
+		$('#rules').addClass('hidden');
+		$('#rulesMobile').addClass('hidden');
 		$('#contactInfo').show();
-		window.scrollTo(0,0)
+		window.scrollTo(0,0);
 	});
 
 	$('#goBack').click(function(){
-		$('.change').show();
+		$('#rules').removeClass('hidden');
+		$('#rulesMobile').removeClass('hidden');
 		$('#order').show();
-		$('#rules').show()
 		$('#contactInfo').hide();
+		window.scrollTo(0,0);
+	});
 
+	$('#day').change(function(){
+		var index = $(this).val();
+		$('#delivery').html(dayList[index]);
 	})
 
 	$('#formSubmit').click(function(){
@@ -172,7 +90,7 @@ $(document).ready(function() {
 				return;
 			}
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
-			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': 'Tuesday July 19th ' + $('#delivery option:selected').text()};
+			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#day option:selected').text() + ' ' + $('#delivery option:selected').text()};
 			console.log(data);
 			var a1 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
