@@ -90,7 +90,7 @@ $(document).ready(function() {
 				return;
 			}
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
-			var data = {'name': $('#contactName').val(), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#day option:selected').text() + ' ' + $('#delivery option:selected').text()};
+			var data = {'firstName': $('#contactName').val().split(' ')[0], 'lastName': $('#contactName').val().split(' ').slice(1).join(' '), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#day option:selected').text() + ' ' + $('#delivery option:selected').text(), 'time': $('#delivery').val()};
 			console.log(data);
 			var a1 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
@@ -103,7 +103,7 @@ $(document).ready(function() {
 			var a2 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
 				method: 'POST',
-				data: JSON.stringify({'time': $('#delivery').val()}),
+				data: JSON.stringify(data),
 				processData: false,
 				contentType: 'application/json',
 				success: function(data, status, xhr){
