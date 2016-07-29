@@ -3,6 +3,7 @@ var dayList =[];
 var dayCounter = -1;
 var d = new Date(0);
 var previousDate = d.toString().split(' ').slice(0,3).join(' ');
+var zips = ['60201', '60202', '60091', '60203', '60076', '60626', '60645'];
 $.ajax({
 	url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
 	method: 'GET',
@@ -54,6 +55,13 @@ $(document).ready(function() {
 		$('#theirList').append('<li>' + listLines[line] + '</li>')
 	}
 
+	if($('.note').height() > (812 - 225)){
+		$('#contactOrder').css('min-height', $('.note').height() + 225);
+	}
+
+	
+	
+
 	$('#day').change(function(){
 		var index = $(this).val();
 		$('#delivery').html(dayList[index]);
@@ -76,8 +84,20 @@ $(document).ready(function() {
 				$('#email').addClass('error');
 				$('.contactErrorMessage').text("Please use a valid email address");
 				$('.contactErrorMessage').show();
+				window.scrollTo(0,0);
 				return;
 			}
+
+			console.log($('#zip').val());
+			console.log(zips[0]);
+			if($.inArray($('#zip').val(), zips) == -1){
+				$('#email').addClass('error');
+				$('.contactErrorMessage').text("We do not service your area code at this time.");
+				$('.contactErrorMessage').show();
+				window.scrollTo(0,0);
+				return;
+			}
+
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
 			var data = {'firstName': $('#contactName').val().split(' ')[0], 'lastName': $('#contactName').val().split(' ').slice(1).join(' '), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#day option:selected').text() + ' ' + $('#delivery option:selected').text(), 'time': $('#delivery').val()};
 			console.log(data);
@@ -92,6 +112,7 @@ $(document).ready(function() {
 					window.location.href = 'confirmation.html';
 				}
 			});
+			window.scrollTo(0,0);
 			$('#contactOrder').hide();
 			$('#contact').show();
 			setInterval(processingGif, 1000);
