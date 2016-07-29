@@ -4,16 +4,18 @@
     <title>Simplist | Order</title>
     <meta http-equiv="cache-control" content="public">
     <meta charset="UTF-8">
-    <meta name="description" content="The world's first grocery delivery comparison tool. Never get served by your grocery service again. Launching soon.">
+    <meta name="description" content="The world's simplest grocery delivery service.">
     <meta name="author" content="Simplist">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/normalize.min.css?v=1.0">
-    <link rel="stylesheet" href="../css/main_3.css?v=1.1">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://use.typekit.net/lpx5pbv.js"></script>
+	<script>try{Typekit.load({ async: false });}catch(e){}</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src='../main.js?v=1.0'></script>
+    <script src="../js/main.js"></script>
+    <script src="index.js"></script>
     <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,31 +29,44 @@
 	</script>
 </head>
 <body>
-	<nav>
-		<a href="../index.html"><img class="home" src="../img/listy_icon_3.png"></a>
-		<img class="toggle" src="../img/menu_icon.png">
+
+
+	<div class="banner">Free grocery delivery to Evanston, IL beginning Monday, August 1</div>
+	<nav class="color">
+		<a href="../"><img class="logo" src="../img/logo.png"></a>
+		<div class="menu_icon">
+			<div class="menu_line top"></div>
+			<div class="menu_line middle"></div>
+			<div class="menu_line bottom"></div>
+		</div>
 		<div class="main_nav">
-			<img class="exit" src="../img/exit.png">
 			<ul>
-				<li class='header'><a href="../index.html">Home</a></li>
-				<li class='active header'><a href="index.html">Order</a></li>
-				<li class='header'><a href="../blog/index.html">Blog</a></li>
-				<li class="header"><a href="../contact/index.html">Contact</a></li>
+				<li><a href="../index.html">Home</a></li>
+				<li class="active"><a href="index.html">Order</a></li>
+				<li><a href="../contact/index.html">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div id='confirmation' class='container order' style='text-align:center;'>
-		<h2 style='text-align:center;'>Thank you for your order!</h2>
-		<div>You will receive a confirmation text/email shortly.</div>
-		<br>
-		<div>If you would like to change your order, please use the contact form on our webpage.</div>
-	</div>
-
-
-
+	
 	<div id="footer">
-		<p>© 2016 Simplist, <span class="avoidwrap">Crafted at Northwestern University</span></p>
+		<div class="container">
+			<p>Crafted <span>with <img src="../img/heart.png"> </span>at Northwestern University</p>
+		</div>
 	</div>
-
+	
+	<div id="contact" class="last">
+			<img src="../img/cloud-02.png" class="cloud c1"><img src="../img/cloud-02.png" class="cloud c1-1">
+			<img src="../img/cloud-02.png" class="cloud c2"><img src="../img/cloud-02.png" class="cloud c2-1">
+			<img src="../img/cloud-04.png" class="cloud c3"><img src="../img/cloud-04.png" class="cloud c3-1">
+			<img src="../img/cloud-04.png" class="cloud c4"><img src="../img/cloud-04.png" class="cloud c4-1">
+			<img src="../img/cloud-05.png" class="cloud c5"><img src="../img/cloud-05.png" class="cloud c5-1">
+			<img src="../img/cloud-04.png" class="cloud c6-1">
+			<img src="../img/cloud-02.png" class="cloud c7-1">
+		<div class="container contact">
+			<h2>Thank you for your order!</h2>
+			<p>You will receive a confirmation text/email shortly</p>
+			<p>If you would like to change your order, please use the contact form on our webpage</p>
+		</div>
+	</div>
 </body>
 </html>

@@ -4,20 +4,18 @@
     <title>Simplist</title>
     <meta http-equiv="cache-control" content="public">
     <meta charset="UTF-8">
-    <meta name="description" content="The world's first grocery delivery comparison tool. Never get served by your grocery service again. Launching soon.">
+    <meta name="description" content="The world's simplest grocery delivery service.">
     <meta name="author" content="Simplist">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    <meta property='og:title' content="Simplist"/>
-    <meta property='og:url' content='http://gosimplist.com'/>
-    <meta property='og:type' content='website'/>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="css/normalize.min.css?v=1.0">
-    <link rel="stylesheet" href="css/main_3.css?v=1.1">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+	<script src="https://use.typekit.net/lpx5pbv.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="main.js?v=1.0"></script>
     <script src="js/main.js"></script>
+    <script src='main.js'></script>
     <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -31,56 +29,119 @@
 	</script>
 </head>
 <body>
+
+
+	<div class="banner">Free grocery delivery to Evanston, IL beginning Monday, August 1</div>
 	<nav class="image">
-		<a href="#"><img class="home" src="img/listy_icon_3.png"></a>
-		<img class="toggle" src="img/menu_icon.png">
+		<a href="#"><img class="logo" src="./img/logo.png"></a>
+		<div class="menu_icon">
+			<div class="menu_line top"></div>
+			<div class="menu_line middle"></div>
+			<div class="menu_line bottom"></div>
+		</div>
 		<div class="main_nav">
-			<img class="exit" src="img/exit.png">
 			<ul>
-				<li class="active header"><a href="#">Home</a></li>
-				<li class='header'><a href="order/index.html">Order</a></li>
-				<li class='header'><a href="blog/index.html">Blog</a></li>
-				<li class='header'><a href="contact/index.html">Contact</a></li>
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="order/index.html">Order</a></li>
+				<li><a href="contact/index.html">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div id="top">
-		<div class="top_container">
-			<!--<img class="bound" src="img/listy_name_3.png">-->
-			<div style='font-size:5em; margin: none; text-align:center;'>Simplist</div>
-			<p>The world's simplest grocery delivery service</p>
-			<p id='error' style='display:none'>Please enter a valid email address</p>
-			<p id='success' style='display:none'>Thanks for your interest in Simplist!</p>
-			<div id="sign_up">
-				<input type="text" id='email' placeholder="Email me when it's ready">
-				<button id='signUpSubmit'>SEND</button>
-			</div>
-			<p>Launching Summer 2016</p>
-		</div>
-	</div>
-	<div id="how">
-		<div class="container">
-			<div class="heading"><h1>How it works</h1></div>
-			<p>Simplist is intended to make grocery shopping both easier and cheaper, allowing you to have all your groceries delivered and for 
-			the lowest price possible. <b>Every. Single. Time.</b></p>
-				<div class="step">
-					<img src="img/how_01.png">
-					<p>All you have to do is enter your grocery list</p>
-				</div>
-				<div class="step">
-					<img src="img/how_02.png">
-					<p>We'll find you the cheapest delivery service</p>
-				</div>
-				<div class="step">
-					<img src="img/how_03.png">
-					<p>And they'll deliver the food straight to your door</p>
-				</div>
-			<p>Simplist will be launching as a web application so that you can access it whenever, wherever, you need it.</p>
-		</div>
-	</div>
+	
 	<div id="footer">
-		<p>© 2016 Simplist, <span class="avoidwrap">Crafted at Northwestern University</span></p>
+		<div class="container">
+			<p>Crafted <span>with <img src="./img/heart.png"> </span>at Northwestern University</p>
+		</div>
 	</div>
 	
+	<div id="main">
+		<img src="img/cloud-02.png" class="cloud c1"><img src="img/cloud-02.png" class="cloud c1-1">
+		<img src="img/cloud-02.png" class="cloud c2"><img src="img/cloud-02.png" class="cloud c2-1">
+		<img src="img/cloud-04.png" class="cloud c3"><img src="img/cloud-04.png" class="cloud c3-1">
+		<img src="img/cloud-04.png" class="cloud c4"><img src="img/cloud-04.png" class="cloud c4-1">
+		<img src="img/cloud-05.png" class="cloud c5"><img src="img/cloud-05.png" class="cloud c5-1">
+		<img src="img/cloud-04.png" class="cloud c6-1">
+		<img src="img/cloud-02.png" class="cloud c7-1">
+		<img src="img/house.png" class="grounded house">
+		<img src="img/car.png" class="grounded car">
+		<img src="img/market.png" class="grounded market">
+		<div class='message'>
+			<div class="text">Gallon of Milk</div>
+  			<div class='dot left'></div>
+ 			<div class='dot center'></div>
+  			<div class='dot right'></div>
+		</div>
+		<div class="top_container">
+			<img src="img/full_logo_white.png">
+			<p>The world's simplest grocery delivery service</p>
+			<!--<form id="sign_up">
+				<input type="text" placeholder="Email me when it's ready" required>
+				<button type="submit" value="Send">SEND</button>
+			</form>-->
+			<button class="order white nope">Place order</button>
+			<p>Launching Monday, August 1</p>
+		</div>
+	</div>
+	
+	<div class="blurb">
+		<div class="outer">
+			<div class="container">
+				<h3>How we work</h3>
+				<p>Here at Simplist we keep things simple by shopping for you like you shop for you. 
+				We only go to major grocers in your area, and once there we scan the aisles for the 
+				best deals on every item on your list. So if you want orange juice delivered for the 
+				best price possible, you can sift through pages and pages of options... or you can 
+				just tell us you want orange juice.</p>
+				<button class="order nope">Place order</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="give others">
+		<div class="side_box others_icon">
+			<div class="img_box">
+				<img src="img/oj-block.png" class="juice">
+			</div>
+		</div>
+		<div class="side_box light others_text">
+			<div class="container">
+				 <div class="hor_line"></div>
+				 <h2>This is what you'll get from those other guys</h2>
+				 <div class="hor_line"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="give us">
+		<div class="side_box light">
+			<div class="container">
+				<div class="hor_line"></div>
+				<h2>This is what you'll get from us</h2>
+				<div class="hor_line"></div>
+			</div>
+		</div>
+		<div class="side_box">
+			<div class="img_box">
+				<img src="img/juice.png" class="juice">
+			</div>
+			<div class="vert_line"></div>
+		</div>
+	</div>
+	
+	<div class="email last">
+		<div class="outer">
+			<div class="container">
+				<h3>Connect With Us</h3>
+				<p>Join our newsletter to stay up to date with what we're working on. We won't 
+				send emails often, but when we do you won't want to miss them.</p>
+				<p id='error' style='display:none'>Please enter a valid email address</p>
+				<p id='success' style='display:none'>Thank you for your interest in Simplist!</p>
+				<form id="sign_up">
+					<input id='email' type="text" placeholder="Sign me up!" required>
+					<button id='emailSubmit' type="button" value="Send">SEND</button>
+				</form>
+			</div>
+		</div>
+	</div>
 	
 </body>

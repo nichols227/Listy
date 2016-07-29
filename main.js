@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#signUpSubmit').click(function(){
+	$('#emailSubmit').click(function(){
 		var emailString = $('#email').val()
 		if(emailString.indexOf("@") == -1 || emailString.indexOf(".") == -1){
 			$('#email').val('')

@@ -48,22 +48,11 @@ $.ajax({
 })
 
 $(document).ready(function() {
-	$('#sendList').click(function(){
-		list = $('#textList').val();
-		$('#order').hide();
-		$('#rules').addClass('hidden');
-		$('#rulesMobile').addClass('hidden');
-		$('#contactInfo').show();
-		window.scrollTo(0,0);
-	});
-
-	$('#goBack').click(function(){
-		$('#rules').removeClass('hidden');
-		$('#rulesMobile').removeClass('hidden');
-		$('#order').show();
-		$('#contactInfo').hide();
-		window.scrollTo(0,0);
-	});
+	var list = localStorage.SimplistList;
+	listLines = list.split("\n");
+	for(line in listLines){
+		$('#theirList').append('<li>' + listLines[line] + '</li>')
+	}
 
 	$('#day').change(function(){
 		var index = $(this).val();
@@ -92,15 +81,21 @@ $(document).ready(function() {
 			var addressString = $('#address').val() + ', ' + $('#city').val() + ', ' + $('#state').val() + ', ' + $('#zip').val();
 			var data = {'firstName': $('#contactName').val().split(' ')[0], 'lastName': $('#contactName').val().split(' ').slice(1).join(' '), 'email': $('#email').val(), 'phone': $('#phone').val(), 'address': addressString, 'list': list, 'instructions': $('#instruct').val(), 'delivery': $('#day option:selected').text() + ' ' + $('#delivery option:selected').text(), 'time': $('#delivery').val()};
 			console.log(data);
-			var a1 = $.ajax({
+			
+			$.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/orderemail',
 				method: 'POST',
 				data: JSON.stringify(data),
 				processData: false,
 				contentType: 'application/json',
-
+				success: function(data, status, xhr){
+					window.location.href = 'confirmation.html';
+				}
 			});
-			var a2 = $.ajax({
+			$('#contactOrder').hide();
+			$('#contact').show();
+			setInterval(processingGif, 1000);
+			/*var a2 = $.ajax({
 				url: 'https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/scheduler',
 				method: 'POST',
 				data: JSON.stringify(data),
@@ -109,11 +104,7 @@ $(document).ready(function() {
 				success: function(data, status, xhr){
 					
 				}
-			});
-			$('button').prop('disabled', true);
-			$.when(a1, a2).done(function(v1, v2){
-				window.location.href = 'confirmation.html';
-			})
+			});*/
 			
 		}
 	});
@@ -124,4 +115,20 @@ $(document).ready(function() {
 		$('.contactErrorMessage').text("Please fill out highlighted fields");
 	});
 
-})
+});
+
+function processingGif(){
+	var d = new Date().getSeconds();
+	if(d%4 == 0){
+		$('#processing').text('Processing.')
+	}
+	if(d%4 == 1){
+		$('#processing').text('Processing..')
+	}
+	if(d%4 == 2){
+		$('#processing').text('Processing...')
+	}
+	if(d%4 == 3){
+		$('#processing').text('Processing.')
+	}
+}

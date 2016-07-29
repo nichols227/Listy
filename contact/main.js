@@ -15,7 +15,7 @@ $(document).ready(function(){
 		}
 		var emailData = {'email': emailString, 'firstName': nameArray[0], 'lastName': lastName, 'text': $('#form').val()};
 		console.log(emailData);
-		$('#email').val('');
+		$('#email_us input').val('');
 		$('#success').show();
 		$('button').prop('disabled', true);
 		$.ajax({
@@ -40,9 +40,6 @@ $(document).ready(function(){
 				console.log(data)
 			}
 		})
-		/*$.post('https://5bbcf67vw1.execute-api.us-west-2.amazonaws.com/test/email', data, function(data, text, xhr){
-			console.log(data)
-		})*/
 	});
 
 	$('#email').focus(function(){
